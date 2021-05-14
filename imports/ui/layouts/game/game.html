@@ -1,0 +1,67 @@
+<template name="App_game">
+  {{> Template.dynamic template=header}}
+  <main>
+    <div class="container-fluid game px-0" itemscope itemtype="http://schema.org/Game">
+      <div class="container {{#if EQUALS board ''}}px-3 pb-0 pt-3{{else}}p-3{{/if}}">
+        <audio id="nuoc-co">
+          <source src="/sound/nuocCo.mp3" type="audio/mpeg">
+          <source src="/sound/nuocCo.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="het-tran">
+          <source src="/sound/hetTran.mp3" type="audio/mpeg">
+          <source src="/sound/hetTran.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        {{#if EQUALS board ''}}
+        <p class="w-100 text-center">
+          <a id="capture" class="btn btn-dark btn-lg" href="javascript:void(0);"><i class="fad fa-camera"></i> Capture the board</a>
+        </p>
+        {{/if}}
+        <div id="chess-board" class="w-50 mx-auto"></div>
+        <p class="w-100 text-center my-3">
+          <span class="d-inline-block rounded" id="game-status"></span>
+        </p>
+        <p class="w-100 text-center mt-2">
+          <span class="rounded d-none" id="game-over"><i class="fad fa-flag-checkered"></i> GAME OVER</span>
+        </p>
+        {{> Template.dynamic template=aboveContent data=attrs.aboveData}}
+        <div class="row">
+          <input type="hidden" name="FEN" id="FEN" />
+          <input type="hidden" name="piecesUrl" id="piecesUrl" value="" />
+          {{> Template.dynamic template=scripts}}
+          {{> Template.dynamic template=belowContent data=attrs.belowData}}
+          {{#if NOT (EQUALS board '') }}
+          <p class="w-100 text-center mt-2">
+            <a id="share-board" class="text-dark mx-auto btn btn-light btn-lg py-2"><i class="fad fa-share"></i> Share board</a>
+          </p>
+          <script>
+          $('#share-board').on('click', function(e){
+            e.preventDefault();
+            window.location.href = '/board/' + game.fen();
+          });
+          </script>
+          {{else}}
+          <h3 class="mx-auto text-center my-2 d-block w-100">Who goes first?</h3>
+          <p class="w-100 text-center mt-2">
+            <a id="white-first" class="w-25 btn btn-light btn-lg text-dark"><i class="fad fa-chess-clock-alt"></i> White</a>
+            <a id="black-first" class="w-25 btn btn-dark btn-lg"><i class="fad fa-chess-clock"></i> Black</a>
+          </p>
+          <script>
+          $('#white-first').on('click', function(e){
+            e.preventDefault();
+            window.location.href = '/board/' + board.fen() + ' w - - 0 1';
+          });
+          $('#black-first').on('click', function(e){
+            e.preventDefault();
+            window.location.href = '/board/' + board.fen() + ' b - - 0 1';
+          });
+          </script>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{> Template.dynamic template=rules}}
+  </main>
+  {{> Template.dynamic template=footer}}
+</template>

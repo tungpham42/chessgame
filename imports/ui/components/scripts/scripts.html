@@ -1,0 +1,27 @@
+<template name="scripts">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js" integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg==" crossorigin="anonymous"></script>
+  <script>
+  $('#copy-url-white').on('click', function() {
+    copyToClipboard('#url-white');
+    selectText('#url-white')
+  });
+  $('#copy-url-black').on('click', function() {
+    copyToClipboard('#url-black');
+    selectText('#url-black')
+  });
+  const nuocCo = document.getElementById("nuoc-co");
+  const hetTran = document.getElementById("het-tran");
+
+  $(function () {
+    $('.dropdown-toggle').dropdown();
+    if (!Modernizr.touch) {
+      $('[data-toggle="tooltip"]').tooltip();
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+    }
+  });
+  </script>
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e73268767defa7b"></script>
+</template>

@@ -1,0 +1,1 @@
+import './boardAi.html';
