@@ -6,26 +6,18 @@
       <i class="fad fa-trophy"></i> Choose level
     </button>
     <div class="dropdown-menu" aria-labelledby="levelDropdown">
-      <a class="dropdown-item" data-href="/newbie">Newbie</a>
-      <a class="dropdown-item" data-href="/easy">Easy</a>
-      <a class="dropdown-item" data-href="/normal">Normal</a>
-      <a class="dropdown-item" data-href="/hard">Hard</a>
-      <a class="dropdown-item" data-href="/insane">Insane</a>
+      <a class="dropdown-item go-to-href" data-href="/newbie">Newbie</a>
+      <a class="dropdown-item go-to-href" data-href="/easy">Easy</a>
+      <a class="dropdown-item go-to-href" data-href="/normal">Normal</a>
+      <a class="dropdown-item go-to-href" data-href="/hard">Hard</a>
+      <a class="dropdown-item go-to-href" data-href="/insane">Insane</a>
     </div>
   </div>
-  <script>
-  $('.dropdown-item').each(function(){
-    $(this).on('click', function(e){
-      e.preventDefault();
-      window.location.href = $(this).attr('data-href');
-    });
-  });
-  </script>
 </template>
 
 <template name="aiBelow">
   <p class="w-100 text-center mt-4">
-    <a class="w-25 btn btn-dark btn-lg" href="/play-with-friend"><i class="fad fa-user"></i> Play with friend</a>
+    <a class="w-25 btn btn-dark btn-lg go-to-href" data-href="/play-with-friend"><i class="fad fa-user"></i> Play with friend</a>
     <a id="reset" class="w-25 btn btn-light btn-lg text-dark"><i class="fad fa-redo-alt"></i> Restart</a>
   </p>
   <script>
@@ -357,6 +349,12 @@
     game.load('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1');
     updateStatus();
     $('#game-over').removeClass('d-inline-block').addClass('d-none');
+  });
+  $('.go-to-href').each(function(){
+    $(this).on('click', function(e){
+      e.preventDefault();
+      window.location.href = $(this).attr('data-href');
+    });
   });
   </script>
 </template>
