@@ -10,10 +10,16 @@
         <div class="col-12 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3">
           <ul class="list-unstyled">
             <li>
-              <a class="home" href="/">Home</a>
+              <a class="home go-to-href" data-href="/">Home</a>
             </li>
             <li>
-              <a class="about" href="/about">About</a>
+              <a class="about go-to-href" data-href="/about">About</a>
+            </li>
+            <li>
+              <a class="setup go-to-href" data-href="/set-up">Set up</a>
+            </li>
+            <li>
+              <a class="github" href="https://github.com/tungpham42/chessgame" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </li>
           </ul>
         </div>
@@ -97,6 +103,12 @@
     if(detected){
       adBlockDetected();
     }
+  });
+  $('.go-to-href').each(function(){
+    $(this).on('click', function(e){
+      e.preventDefault();
+      window.location.href = $(this).attr('data-href');
+    });
   });
   </script>
   <a href="#0" class="cd-top js-cd-top rounded" style="background-image: url('/img/cd-top-arrow.svg');">Top</a>

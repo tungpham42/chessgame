@@ -1,8 +1,8 @@
-<template name="App_game">
+<template name="App_setup">
   {{> Template.dynamic template=header}}
   <main>
     <div class="container-fluid game px-0" itemscope itemtype="http://schema.org/Game">
-      <div class="container p-3">
+      <div class="container px-3 pb-0 pt-3">
         <audio id="nuoc-co">
           <source src="/sound/nuocCo.mp3" type="audio/mpeg">
           <source src="/sound/nuocCo.wav" type="audio/wav">
@@ -13,6 +13,9 @@
           <source src="/sound/hetTran.wav" type="audio/wav">
           Your browser does not support the audio element.
         </audio>
+        <p class="w-100 text-center">
+          <a id="capture" class="btn btn-dark btn-lg" href="javascript:void(0);"><i class="fad fa-camera"></i> Capture the board</a>
+        </p>
         <div id="chess-board" class="w-50 mx-auto"></div>
         <p class="w-100 text-center my-3">
           <span class="d-inline-block rounded" id="game-status"></span>
@@ -26,13 +29,19 @@
           <input type="hidden" name="piecesUrl" id="piecesUrl" value="" />
           {{> Template.dynamic template=scripts}}
           {{> Template.dynamic template=belowContent data=attrs.belowData}}
+          <h3 class="mx-auto text-center my-2 d-block w-100">Who goes first?</h3>
           <p class="w-100 text-center mt-2">
-            <a id="share-board" class="text-dark mx-auto btn btn-light btn-lg py-2"><i class="fad fa-share"></i> Share board</a>
+            <a id="white-first" class="w-25 btn btn-light btn-lg text-dark"><i class="fad fa-chess-clock-alt"></i> White</a>
+            <a id="black-first" class="w-25 btn btn-dark btn-lg"><i class="fad fa-chess-clock"></i> Black</a>
           </p>
           <script>
-          $('#share-board').on('click', function(e){
+          $('#white-first').on('click', function(e){
             e.preventDefault();
-            window.location.href = '/board/' + game.fen();
+            window.location.href = '/board/' + board.fen() + ' w - - 0 1';
+          });
+          $('#black-first').on('click', function(e){
+            e.preventDefault();
+            window.location.href = '/board/' + board.fen() + ' b - - 0 1';
           });
           </script>
         </div>

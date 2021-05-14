@@ -73,10 +73,10 @@
         context.fillStyle = '#848484';
         context.textAlign = 'center';
         context.textBaseline = 'middle';
-        context.fillText('CHESSVIET.COM', canvas.width / 2, canvas.height / 2);
+        context.fillText('PRACTICLE.SG', canvas.width / 2, canvas.height / 2);
 
         canvas.toBlob(function(blob) {
-          saveAs(blob, "board.png"); 
+          saveAs(blob, "Chess board {{time}}.png"); 
         });
       }
     });

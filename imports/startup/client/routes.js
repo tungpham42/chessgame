@@ -6,6 +6,7 @@ import { Template } from 'meteor/templating';
 // Import needed templates
 import '/imports/ui/layouts/body/body.js';
 import '/imports/ui/layouts/game/game.js';
+import '/imports/ui/layouts/setup/setup.js';
 import '/imports/ui/pages/home/home.js';
 import '/imports/ui/pages/about/about.js';
 import '/imports/ui/pages/ai/ai.js';
@@ -207,7 +208,7 @@ FlowRouter.route('/set-up', {
   name: 'App.setup',
   title: 'Set up - Chess',
   action() {
-    BlazeLayout.render('App_game', {
+    BlazeLayout.render('App_setup', {
       header: 'header',
       footer: 'footer',
       scripts: 'scripts',
@@ -217,6 +218,7 @@ FlowRouter.route('/set-up', {
       attrs: {
         belowData: {
           board: '8/8/8/8/8/8/8/8',
+          time: new Date(),
           fullUrl: window.location.href.split('?')[0]
         }
       }
@@ -232,7 +234,7 @@ FlowRouter.route('/set-up/:board([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
   name: 'App.setupBoard',
   title: 'Set up - Chess',
   action(params, queryParams) {
-    BlazeLayout.render('App_game', {
+    BlazeLayout.render('App_setup', {
       header: 'header',
       footer: 'footer',
       scripts: 'scripts',
@@ -242,6 +244,7 @@ FlowRouter.route('/set-up/:board([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         belowData: {
           board: params.board,
+          time: new Date(),
           fullUrl: window.location.href.split('?')[0]
         }
       }

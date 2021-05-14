@@ -1,5 +1,5 @@
 {
-  "name": "chessgame",
+  "name": "chess",
   "private": true,
   "scripts": {
     "start": "meteor run",

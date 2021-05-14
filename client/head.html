@@ -12,7 +12,6 @@
   <meta name="description" content="Let's play chess with anyone all over the world!" />
   <meta property="og:title" content="Chess for everyone" />
   <meta property="og:description" content="Let's play chess with anyone all over the world!" />
-  <meta property="og:url" content="{{fullUrl}}" />
   <meta property="fb:app_id" content="562283911060533"/>
   <meta name="twitter:card" content="summary" />
   <meta name="google-site-verification" content="6I_Mzb56NPf1wGIsGE-dQpJ4d7zZBVsCdB8l8QgHayQ" />
@@ -24,6 +23,16 @@
   <link rel="stylesheet" href="/css/fa/css/all.min.css?v=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lumen/bootstrap.min.css" integrity="sha384-GzaBcW6yPIfhF+6VpKMjxbTx6tvR/yRd/yJub90CqoIn2Tz4rRXlSpTFYMKHCifX" crossorigin="anonymous">
-  <link href="/css/index.css?v=18" rel="stylesheet">
-  <link rel="canonical" href="{{fullUrl}}" />
+  <link href="/css/index.css?v=1" rel="stylesheet">
+  <script>
+  var linkOgUrl = document.createElement('meta');
+  linkOgUrl.setAttribute('property', 'og:url');
+  linkOgUrl.content = document.location;
+  document.getElementsByTagName('head')[0].appendChild(linkOgUrl);
+
+  var linkCanonical = !!document.querySelector("link[rel='canonical']") ? document.querySelector("link[rel='canonical']") : document.createElement('link');
+  linkCanonical.setAttribute('rel', 'canonical');
+  linkCanonical.setAttribute('href', location.protocol + '//' + location.host + location.pathname);
+  document.head.appendChild(linkCanonical);
+  </script>
 </head>
