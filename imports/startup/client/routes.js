@@ -36,7 +36,7 @@ FlowRouter.route('/', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Normal' },
-        belowData: { level: '3' }
+        belowData: { level: 3 }
       }
     });
   },
@@ -60,7 +60,7 @@ FlowRouter.route('/newbie', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Newbie' },
-        belowData: { level: '1' }
+        belowData: { level: 1 }
       }
     });
   },
@@ -84,7 +84,7 @@ FlowRouter.route('/easy', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Easy' },
-        belowData: { level: '2' }
+        belowData: { level: 2 }
       }
     });
   },
@@ -108,7 +108,7 @@ FlowRouter.route('/normal', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Normal' },
-        belowData: { level: '3' }
+        belowData: { level: 3 }
       }
     });
   },
@@ -132,7 +132,7 @@ FlowRouter.route('/hard', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Hard' },
-        belowData: { level: '4' }
+        belowData: { level: 4 }
       }
     });
   },
@@ -156,7 +156,7 @@ FlowRouter.route('/insane', {
       belowContent: 'aiBelow',
       attrs: {
         aboveData: { levelTxt: 'Insane' },
-        belowData: { level: '5' }
+        belowData: { level: 5 }
       }
     });
   },
@@ -295,7 +295,7 @@ FlowRouter.route('/newbie-board/:fen([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         aboveData: { levelTxt: 'Newbie' },
         belowData: {
-          level: '1',
+          level: 1,
           fen: params.fen,
           fullUrl: window.location.href.split('?')[0]
         }
@@ -323,7 +323,7 @@ FlowRouter.route('/easy-board/:fen([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         aboveData: { levelTxt: 'Easy' },
         belowData: {
-          level: '2',
+          level: 2,
           fen: params.fen,
           fullUrl: window.location.href.split('?')[0]
         }
@@ -351,7 +351,7 @@ FlowRouter.route('/normal-board/:fen([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         aboveData: { levelTxt: 'Normal' },
         belowData: {
-          level: '3',
+          level: 3,
           fen: params.fen,
           fullUrl: window.location.href.split('?')[0]
         }
@@ -379,7 +379,7 @@ FlowRouter.route('/hard-board/:fen([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         aboveData: { levelTxt: 'Hard' },
         belowData: {
-          level: '4',
+          level: 4,
           fen: params.fen,
           fullUrl: window.location.href.split('?')[0]
         }
@@ -407,7 +407,7 @@ FlowRouter.route('/insane-board/:fen([a-zA-Z0-9\-\/\s| |%20|&nbsp;]+)', {
       attrs: {
         aboveData: { levelTxt: 'Insane' },
         belowData: {
-          level: '5',
+          level: 5,
           fen: params.fen,
           fullUrl: window.location.href.split('?')[0]
         }
