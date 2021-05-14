@@ -6,13 +6,21 @@
       <i class="fad fa-trophy"></i> Choose level
     </button>
     <div class="dropdown-menu" aria-labelledby="levelDropdown">
-      <a class="dropdown-item" href="/newbie">Newbie</a>
-      <a class="dropdown-item" href="/easy">Easy</a>
-      <a class="dropdown-item" href="/normal">Normal</a>
-      <a class="dropdown-item" href="/hard">Hard</a>
-      <a class="dropdown-item" href="/insane">Insane</a>
+      <a class="dropdown-item" data-href="/newbie">Newbie</a>
+      <a class="dropdown-item" data-href="/easy">Easy</a>
+      <a class="dropdown-item" data-href="/normal">Normal</a>
+      <a class="dropdown-item" data-href="/hard">Hard</a>
+      <a class="dropdown-item" data-href="/insane">Insane</a>
     </div>
   </div>
+  <script>
+  $('.dropdown-item').each(function(){
+    $(this).on('click', function(e){
+      e.preventDefault();
+      window.location.href = $(this).attr('data-href');
+    });
+  });
+  </script>
 </template>
 
 <template name="aiBelow">
